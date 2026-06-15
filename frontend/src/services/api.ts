@@ -27,14 +27,20 @@ export function isAdminLoggedIn(): boolean {
 
 // ── Core fetch helper ────────────────────────────────────────
 async function apiFetch<T>(payload: Record<string, unknown>): Promise<T> {
+  const formData = new FormData();
+  formData.append("payload", JSON.stringify(payload));
+
   const response = await fetch(SCRIPT_URL, {
     method: "POST",
-    headers: { "Content-Type": "text/plain" },
-    body: JSON.stringify(payload),
+    body: formData,
   });
+
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
   const data = await response.json();
+
   if (!data.success) throw new Error(data.error || "API error");
+
   return data as T;
 }
 
