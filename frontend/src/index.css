@@ -1,0 +1,206 @@
+/* ============================================================
+   index.css — Global CSS Variables, Reset, Typography
+   Background colors extracted directly from saint image:
+     Top:    #ffe4b9  (lightest warm cream)
+     Mid:    #f5d3a3  (parchment)
+     Deep:   #e8c090  (warm amber)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ── Extracted from saint image background ── */
+  --color-cream:        #fdf0d5;   /* lightest — navbar, cards */
+  --color-cream-mid:    #f5d3a3;   /* mid parchment */
+  --color-cream-deep:   #e8c090;   /* deeper amber */
+  --color-bg-top:       #ffe4b9;   /* page top */
+  --color-bg-bottom:    #f0c882;   /* page bottom */
+
+  /* ── Brand colors ── */
+  --color-maroon:       #8b0000;
+  --color-maroon-dark:  #6b0000;
+  --color-maroon-light: #b03030;
+  --color-gold:         #c9a227;
+  --color-gold-dark:    #9a7a15;
+  --color-gold-light:   #e8c44a;
+  --color-brown:        #5c3317;
+  --color-brown-light:  #7a4a28;
+
+  /* ── Typography ── */
+  --font-devanagari: 'Noto Sans Devanagari', 'Mangal', 'Arial Unicode MS', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-devanagari), system-ui, sans-serif;
+  background-color: var(--color-bg-top);
+  color: var(--color-brown);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+:focus-visible { outline: 2.5px solid var(--color-gold); outline-offset: 3px; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }
+
+/* ── Placeholder page shared styles ── */
+.placeholder-page {
+  min-height: 100vh;
+  padding-top: 72px;
+  background: var(--color-bg-top);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
+  padding-inline: 1.5rem;
+}
+.placeholder-page__icon { font-size: 3.5rem; opacity: 0.5; }
+.placeholder-page__badge {
+  display: inline-block;
+  background: rgba(180,140,50,0.15);
+  color: var(--color-gold-dark);
+  font-weight: 700; font-size: 0.8rem;
+  padding: 0.3rem 0.9rem; border-radius: 20px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.placeholder-page__title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800; color: var(--color-maroon); line-height: 1.2;
+}
+.placeholder-page__desc {
+  font-size: 1.05rem; color: var(--color-brown-light);
+  max-width: 400px; line-height: 1.6;
+}
+.placeholder-page__back {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.6rem 1.4rem; background: var(--color-maroon);
+  color: #fff; border-radius: 8px; text-decoration: none;
+  font-weight: 700; font-size: 0.92rem;
+  transition: background 0.2s, transform 0.15s;
+}
+.placeholder-page__back:hover { background: var(--color-maroon-dark); transform: translateY(-1px); }
+.placeholder-page__divider {
+  width: 60px; height: 3px;
+  background: linear-gradient(to right, var(--color-gold), var(--color-gold-light));
+  border-radius: 2px;
+}
+
+/* ============================================================
+   PAGE-SPECIFIC BACKGROUND PATTERNS
+   Applied via bgClass prop on PlaceholderPage (and future real pages).
+   All patterns are CSS-only SVG data URIs — no image files added.
+   Opacity is very low so text remains easy to read.
+   Color theme: maroon (#8b0000) and gold (#c9a227) on cream background.
+   ============================================================ */
+
+/* ── ABOUT page — 8-petal lotus: peaceful, spiritual ── */
+.page-lotus-bg {
+  background-color: var(--color-bg-top);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cg fill='%238b0000' opacity='0.048'%3E%3Cpath d='M65 8 Q79 36 65 56 Q51 36 65 8Z'/%3E%3Cpath d='M65 74 Q79 102 65 122 Q51 102 65 74Z'/%3E%3Cpath d='M8 65 Q36 79 56 65 Q36 51 8 65Z'/%3E%3Cpath d='M74 65 Q102 79 122 65 Q102 51 74 65Z'/%3E%3Cpath d='M21 21 Q40 38 42 58 Q22 44 21 21Z'/%3E%3Cpath d='M109 21 Q90 38 88 58 Q108 44 109 21Z'/%3E%3Cpath d='M21 109 Q40 92 42 72 Q22 86 21 109Z'/%3E%3Cpath d='M109 109 Q90 92 88 72 Q108 86 109 109Z'/%3E%3Ccircle cx='65' cy='65' r='9' fill='none' stroke='%238b0000' stroke-width='0.8'/%3E%3Ccircle cx='65' cy='65' r='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 130px 130px;
+  background-repeat: repeat;
+}
+
+/* ── MANDAL page — temple/mandir silhouette motif ── */
+.page-temple-bg {
+  background-color: var(--color-bg-top);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='120'%3E%3Cg fill='%235c3317' opacity='0.052'%3E%3Cpolygon points='55,6 70,28 40,28'/%3E%3Cpolygon points='55,25 72,46 38,46'/%3E%3Crect x='40' y='44' width='30' height='6' rx='1'/%3E%3Crect x='34' y='50' width='42' height='30' rx='2'/%3E%3Crect x='26' y='78' width='58' height='8' rx='2'/%3E%3Crect x='48' y='64' width='14' height='16' rx='1'/%3E%3Ccircle cx='55' cy='10' r='3'/%3E%3Cline x1='26' y1='86' x2='84' y2='86' stroke='%235c3317' stroke-width='0.6' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 110px 120px;
+  background-repeat: repeat;
+}
+
+/* ── EVENTS page — mandala geometric pattern: festive, devotional ── */
+.page-mandala-bg {
+  background-color: var(--color-bg-top);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg stroke='%238b0000' fill='none' stroke-width='0.7' opacity='0.042'%3E%3Ccircle cx='80' cy='80' r='70'/%3E%3Ccircle cx='80' cy='80' r='52'/%3E%3Ccircle cx='80' cy='80' r='34'/%3E%3Ccircle cx='80' cy='80' r='16'/%3E%3Cpath d='M80 10 Q92 44 80 80 Q68 44 80 10Z'/%3E%3Cpath d='M80 150 Q92 116 80 80 Q68 116 80 150Z'/%3E%3Cpath d='M10 80 Q44 92 80 80 Q44 68 10 80Z'/%3E%3Cpath d='M150 80 Q116 92 80 80 Q116 68 150 80Z'/%3E%3Cpath d='M129 31 Q106 55 80 80 Q96 52 129 31Z'/%3E%3Cpath d='M129 129 Q106 105 80 80 Q96 108 129 129Z'/%3E%3Cpath d='M31 129 Q54 105 80 80 Q64 108 31 129Z'/%3E%3Cpath d='M31 31 Q54 55 80 80 Q64 52 31 31Z'/%3E%3C/g%3E%3Ccircle cx='80' cy='80' r='4' fill='%23c9a227' opacity='0.09'/%3E%3Ccircle cx='80' cy='10' r='2.5' fill='%23c9a227' opacity='0.07'/%3E%3Ccircle cx='80' cy='150' r='2.5' fill='%23c9a227' opacity='0.07'/%3E%3Ccircle cx='10' cy='80' r='2.5' fill='%23c9a227' opacity='0.07'/%3E%3Ccircle cx='150' cy='80' r='2.5' fill='%23c9a227' opacity='0.07'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  background-repeat: repeat;
+}
+
+/* ── GALLERY page — small 8-petal floral: very light, won't distract photos ── */
+.page-floral-bg {
+  background-color: var(--color-bg-top);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='%23c9a227' opacity='0.038'%3E%3Cpath d='M40 6 Q48 22 40 34 Q32 22 40 6Z'/%3E%3Cpath d='M40 46 Q48 62 40 74 Q32 62 40 46Z'/%3E%3Cpath d='M6 40 Q22 48 34 40 Q22 32 6 40Z'/%3E%3Cpath d='M46 40 Q62 48 74 40 Q62 32 46 40Z'/%3E%3Cpath d='M16 16 Q30 28 30 42 Q16 32 16 16Z'/%3E%3Cpath d='M64 16 Q50 28 50 42 Q64 32 64 16Z'/%3E%3Cpath d='M16 64 Q30 52 30 38 Q16 48 16 64Z'/%3E%3Cpath d='M64 64 Q50 52 50 38 Q64 48 64 64Z'/%3E%3Ccircle cx='40' cy='40' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  background-repeat: repeat;
+}
+
+/* ── SERVICES page — sacred geometry: circles, triangles ── */
+.page-sacred-bg {
+  background-color: var(--color-bg-top);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%238b0000' stroke-width='0.6' opacity='0.04'%3E%3Ccircle cx='60' cy='60' r='50'/%3E%3Ccircle cx='60' cy='60' r='36'/%3E%3Ccircle cx='60' cy='60' r='20'/%3E%3Cpolygon points='60,14 101,80 19,80'/%3E%3Cpolygon points='60,106 19,40 101,40'/%3E%3C/g%3E%3Ccircle cx='60' cy='60' r='4' fill='%23c9a227' opacity='0.07'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+  background-repeat: repeat;
+}
+
+/* ── CONTACT page — parchment diamond grid ── */
+.page-parchment-bg {
+  background-color: var(--color-bg-top);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%235c3317' stroke-width='0.5' opacity='0.045'%3E%3Cpath d='M30 2 L58 30 L30 58 L2 30 Z'/%3E%3Ccircle cx='30' cy='30' r='4' fill='%23c9a227' opacity='0.06' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  background-repeat: repeat;
+}
+
+/* ── REGISTRATION page — celebration/confetti dots ── */
+.page-celebration-bg {
+  background-color: var(--color-bg-top);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%238b0000' opacity='0.06'/%3E%3Ccircle cx='50' cy='8' r='2' fill='%23c9a227' opacity='0.07'/%3E%3Ccircle cx='80' cy='22' r='2.5' fill='%235c3317' opacity='0.05'/%3E%3Ccircle cx='10' cy='55' r='2' fill='%23c9a227' opacity='0.07'/%3E%3Ccircle cx='65' cy='48' r='3' fill='%238b0000' opacity='0.05'/%3E%3Ccircle cx='90' cy='65' r='2' fill='%23c9a227' opacity='0.06'/%3E%3Ccircle cx='30' cy='82' r='2.5' fill='%238b0000' opacity='0.05'/%3E%3Ccircle cx='72' cy='88' r='2' fill='%235c3317' opacity='0.06'/%3E%3Cpath d='M45 35 L50 25 L55 35 L65 38 L55 45 L58 55 L50 48 L42 55 L45 45 L35 38Z' fill='%23c9a227' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  background-repeat: repeat;
+}
+
+/* ══════════════════════════════════════════════════════
+   GLOBAL ANIMATION UTILITIES — v18
+   ══════════════════════════════════════════════════════ */
+
+/* Shared shine sweep (used by buttons, cards, navbar) */
+@keyframes shine-sweep {
+  0%   { left: -60%; }
+  100% { left: 140%; }
+}
+
+/* Generic card hover lift */
+.card-lift {
+  transition:
+    transform  0.28s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.28s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(139,0,0,0.16), 0 0 0 1.5px rgba(201,162,39,0.3);
+}
+
+/* Generic golden glow border */
+.glow-gold {
+  transition: box-shadow 0.3s ease;
+}
+.glow-gold:hover {
+  box-shadow: 0 0 0 2px rgba(201,162,39,0.5), 0 8px 24px rgba(139,0,0,0.14);
+}
+
+/* Reveal utilities (mirrored here for use outside home.css) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity   0.6s cubic-bezier(0.22,1,0.36,1),
+    transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  will-change: opacity, transform;
+}
+.reveal.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .card-lift, .glow-gold {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  @keyframes shine-sweep { from{} to{} }
+}

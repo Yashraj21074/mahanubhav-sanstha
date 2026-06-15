@@ -1,0 +1,60 @@
+/* loader.css — Premium golden mandala loader */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(160deg, #fce8c0 0%, #f5d49a 40%, #edd08a 70%, #e8c87a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.loader-mandala {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-svg {
+  animation: loader-spin 3s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(201, 162, 39, 0.6));
+}
+
+@keyframes loader-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.loader-glow {
+  width: 80px;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(201,162,39,0.35) 0%, transparent 70%);
+  border-radius: 50%;
+  margin-top: -10px;
+  animation: loader-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes loader-pulse {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50%       { transform: scaleX(1.15); opacity: 0.9; }
+}
+
+.loader-title {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #8b0000;
+  margin: 8px 0 0;
+  letter-spacing: 0.04em;
+}
+
+.loader-subtitle {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #9a7a15;
+  letter-spacing: 0.06em;
+}
