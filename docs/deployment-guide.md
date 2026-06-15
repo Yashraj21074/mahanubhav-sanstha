@@ -22,7 +22,7 @@ Follow `docs/google-sheet-setup.md` to create the spreadsheet with the three req
 At the top of the script, find:
 
 ```js
-const ADMIN_TOKEN = "CHANGE_THIS_TO_YOUR_SECRET_TOKEN_123";
+const ADMIN_TOKEN = "Yashaki@21";
 ```
 
 Replace the value with a strong, unique password. **Keep this secret.**

@@ -4,7 +4,7 @@
 // ============================================================
 
 export const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyASvTXoU8zCcr7HUWWcWr_IE5RWbRaHulv90wDm_hHKV8Sr-19cossJ3MuzWVeCbVI/exec";
+  "https://script.google.com/macros/s/AKfycbwOn0gCRZWkA6GX6-P3WAwU5VTVaoAdGGmK87a04TXrQKNs9h974XT0FUywPPlYL-B_/exec";
 
 // ── Admin token (stored in sessionStorage) ──────────────────
 export const ADMIN_TOKEN_KEY = "msanstha_admin_token";

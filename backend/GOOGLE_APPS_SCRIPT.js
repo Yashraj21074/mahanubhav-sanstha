@@ -12,7 +12,7 @@
 // 5. Copy the Web App URL and paste into src/services/api.ts
 // ============================================================
 
-const ADMIN_TOKEN = "CHANGE_THIS_TO_YOUR_SECRET_TOKEN_123";
+const ADMIN_TOKEN = "Yashaki@21";
 const SHEET_EVENTS = "Events";
 const SHEET_REGISTRATIONS = "Registrations";
 const SHEET_GALLERY = "Gallery";
